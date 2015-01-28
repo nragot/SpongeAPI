@@ -70,8 +70,9 @@ public interface WorldStorage {
      * <p>This may not return a {@link DataContainer} in the event there is no
      * chunk data generated at the desired coordinates.</p>
      *
-     * <p>It is imperative to avoid waiting for the {@link Future} to complete
-     * its task.</p>
+     * <p>It is imperative to understand that the {@link Future} task is
+     * blocking, and should avoid using {@link Future#get()} while on the main
+     * thread.</p>
      *
      * @param chunkCoords The chunk coordinates
      * @return The data container representing the chunk data, if available
